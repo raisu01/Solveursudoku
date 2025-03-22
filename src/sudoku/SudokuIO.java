@@ -5,12 +5,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-class SudokuIO{
+public class SudokuIO{
     public static final int SIZE = 9;
     
-    public static int [] [] readInputFile(String file) throws IOException{
+    public static int [] [] readInputFile(String file ,int[][] grid ) throws IOException{
         // on initialise la grille
-        int [][] grid = new int[SIZE][SIZE];
         // cette ligne permet de lire de fichier passe en parametre
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
@@ -29,8 +28,7 @@ class SudokuIO{
         return grid;
     }
 
-    public static void readFromConsole(){
-        int [][]grid = new int[SIZE][SIZE];
+    public static void readFromConsole(int[][] grid ){
         Scanner sc = new Scanner(System.in);
         System.out.println("veuillez suivre les instructions pour pouvoir remplir le tableau");
         System.out.println("Vous allez à presence remplir 81 valeurs");
@@ -40,10 +38,9 @@ class SudokuIO{
                 System.out.println("veuillez saisir le "+ count +" eme valeur : (il reste "+ (81 - count) +" valeurs");
                 grid [row][column] = sc.nextInt();
                 count++;
-            }   
+            }
         }
         sc.close();
-
 
     }
 }
