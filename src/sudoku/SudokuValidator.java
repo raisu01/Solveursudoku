@@ -16,10 +16,23 @@ public class SudokuValidator{
     public static boolean grilleTrouverEtValide(String filename){
         File file = new File(filename);
 
+        if (!file.exists() || !file.isFile()) {
+            System.out.println("Fichier invalide ou introuvable");
+            return false;
+        }
+
         try (Scanner sc = new Scanner(file)) {
             for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    if (!sc.hasNextInt()) {
+                // on decoupe la ligne en prenant en compte les espace
+                String[] row = sc.nextLine().trim().split("\\s+");
+                // si la longueur est different de 9 on retourne false
+                if (row.length != 9) {
+                    System.out.println("Longueur de la ligne invalide " + (i + 1));
+                    return false;
+                }
+                for (String value : row) {
+                    if (!value.matches("\\d")) {
+                        System.out.println("Valeur invalide");
                         return false;
                     }
                 }
