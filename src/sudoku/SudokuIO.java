@@ -9,7 +9,7 @@ public class SudokuIO{
     public static final int SIZE = 9;
     
     public static int [] [] readInputFile(String file ,int[][] grid ) throws IOException{
-        // on initialise la grille
+        
         // cette ligne permet de lire de fichier passe en parametre
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;

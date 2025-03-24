@@ -1,9 +1,9 @@
 
 import java.io.IOException;
-import sudoku.SudokuValidator;
-import sudoku.SudokuSolver;
-import sudoku.SudokuIO;
 import sudoku.SudokuGrid;
+import sudoku.SudokuIO;
+import sudoku.SudokuSolver;
+import sudoku.SudokuValidator;
 
 public class Main {
     public static final int SIZE = 9;
@@ -18,7 +18,6 @@ public class Main {
            
         }else {
             String filename = args[0];
-
             // Vérification de l'existence et de la validité de la grille
             if (!SudokuValidator.grilleTrouverEtValide(filename)) {
                 System.out.println("Fichier invalide ou format incorrect.");
